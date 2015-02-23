@@ -44,6 +44,8 @@ namespace GeStock
 
 			SearchBar searchBar = (SearchBar)sender;
 			string searchText = searchBar.Text;
+
+			_resultsLabel.Text = App.Database.FindItemNamed (searchText).Name;
 		}
 	}
 }
