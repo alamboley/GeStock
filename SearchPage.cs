@@ -14,8 +14,6 @@ namespace GeStock
 		{
 			Title = "Rechercher";
 
-			Padding = new Thickness (10, Device.OnPlatform (20, 5, 0), 10, 5);
-
 			Label header = new Label {
 
 				Text = "Chercher un produit",
@@ -46,9 +44,6 @@ namespace GeStock
 
 			SearchBar searchBar = (SearchBar)sender;
 			string searchText = searchBar.Text;
-
-			_resultsLabel.Text = App.Database.FindItemNamed (searchText).Name;
-
 		}
 	}
 }

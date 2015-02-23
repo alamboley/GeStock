@@ -13,7 +13,7 @@ namespace GeStock
 		{
 			// The root page of your application
 
-			MainPage = new MyTabbedPage();
+			MainPage = new MainMenuTabbedPage();
 		}
 
 		public static GeStockItemDatabase Database {

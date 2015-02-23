@@ -14,8 +14,6 @@ namespace GeStock
 		{
 			Title = "Stock";
 
-			Padding = new Thickness (10, Device.OnPlatform (20, 5, 0), 10, 5);
-
 			ListView listView = new ListView {
 				RowHeight = 40,
 				ItemTemplate = new DataTemplate(typeof(GeStockItemCell))
@@ -34,6 +32,15 @@ namespace GeStock
 				}
 			};
 
+			listView.ItemSelected += (sender, e) => {
+
+				GeStockItem geStockItem = (GeStockItem)e.SelectedItem;
+
+				Debug.WriteLine (geStockItem.Name);
+
+				var produit = new ProductXAML ();
+				Navigation.PushAsync(produit);
+			};
 		}
 
 		override protected void OnAppearing() {
