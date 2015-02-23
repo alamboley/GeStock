@@ -38,7 +38,7 @@ namespace GeStock
 
 				Debug.WriteLine (geStockItem.Name);
 
-				var produit = new ProductXAML ();
+				var produit = new ProductXAML (geStockItem);
 				Navigation.PushAsync(produit);
 			};
 		}

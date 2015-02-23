@@ -4,13 +4,14 @@
 	<StackLayout VerticalOptions ="FillAndExpand">
 
 		<StackLayout Orientation="Horizontal">
-			<Label Text="Name :" />
-			<Label Text="product name" />
+			<Label Text="Nom :" />
+			<Label Text="{Binding Name}" />
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">
-			<Label Text="Quantity :" />
-			<Label Text="product quantity" />
+			<Label Text="Quantité :" />
+			<Label Text="{Binding Quantity}" />
+			<Stepper Minimum="0" Increment="1" ValueChanged="OnQuantityChanged" Value="{Binding Quantity}" />
 		</StackLayout>
 
 	</StackLayout>
