@@ -19,13 +19,6 @@ namespace GeStock {
 			InitializeComponent ();
 		}
 
-		void OnQuantityChanged(object sender, ValueChangedEventArgs e) {
-
-			_geStockItem.Quantity = (int)e.NewValue;
-
-			Debug.WriteLine (e.NewValue);
-		}
-
 	}
 }
 

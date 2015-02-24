@@ -11,7 +11,7 @@
 		<StackLayout Orientation="Horizontal">
 			<Label Text="Quantité :" />
 			<Label Text="{Binding Quantity}" />
-			<Stepper Minimum="0" Increment="1" ValueChanged="OnQuantityChanged" Value="{Binding Quantity}" />
+			<Stepper Minimum="0" Increment="1" Value="{Binding Quantity}" />
 		</StackLayout>
 
 	</StackLayout>

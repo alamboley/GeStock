@@ -36,11 +36,17 @@ namespace GeStock
 
 				GeStockItem geStockItem = (GeStockItem)e.SelectedItem;
 
-				Debug.WriteLine (geStockItem.Name);
-
 				var produit = new ProductXAML (geStockItem);
 				Navigation.PushAsync(produit);
 			};
+
+			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteItemCell", (sender, arg) => {
+
+				listView.ItemsSource = null;
+
+				_myItems.Remove(arg);
+				listView.ItemsSource = _myItems;
+			});
 		}
 
 		override protected void OnAppearing() {

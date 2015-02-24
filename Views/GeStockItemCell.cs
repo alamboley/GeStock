@@ -26,6 +26,17 @@ namespace GeStock {
 			};
 
 			View = layout;
+
+			var deleteAction = new MenuItem { Text = "Delete", IsDestructive = true };
+			deleteAction.SetBinding (MenuItem.CommandParameterProperty, new Binding ("."));
+			deleteAction.Clicked += (sender, e) => {
+
+				var mi = ((MenuItem)sender);
+
+				MessagingCenter.Send<ListView, GeStockItem> ((ListView)Parent, "deleteItemCell", (GeStockItem)mi.CommandParameter);
+			};
+
+			ContextActions.Add (deleteAction);
 		}
 	}
 }
