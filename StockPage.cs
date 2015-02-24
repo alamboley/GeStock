@@ -3,12 +3,13 @@
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace GeStock
 {
 	public class StockPage : ContentPage
 	{
-		List<GeStockItem> _myItems;
+		ObservableCollection<GeStockItem> _myItems;
 
 		public StockPage ()
 		{
@@ -19,7 +20,7 @@ namespace GeStock
 				ItemTemplate = new DataTemplate(typeof(GeStockItemCell))
 			};
 
-			_myItems = new List<GeStockItem>();
+			_myItems = new ObservableCollection<GeStockItem>();
 
 			_refreshList();
 
@@ -42,10 +43,7 @@ namespace GeStock
 
 			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteItemCell", (sender, arg) => {
 
-				listView.ItemsSource = null;
-
 				_myItems.Remove(arg);
-				listView.ItemsSource = _myItems;
 			});
 		}
 
