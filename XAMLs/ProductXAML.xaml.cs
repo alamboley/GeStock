@@ -9,7 +9,6 @@ namespace GeStock {
 	public partial class ProductXAML : ContentPage {
 
 		GeStockItem _geStockItem;
-		ToolbarItem edit;
 
 		bool _canEdit = false;
 
@@ -20,22 +19,15 @@ namespace GeStock {
 			BindingContext = _geStockItem;
 
 			InitializeComponent ();
-
-			edit = new ToolbarItem {
-				Text = "Modifier",
-				Command = new Command(ShowEditPage)
-			};
-
-			ToolbarItems.Add (edit);
 		}
 
-		void ShowEditPage() {
+		void ShowEditPage(object sender, EventArgs e) {
 
 			_canEdit = !_canEdit;
 
 			this.FindByName<Stepper> ("quantity").IsVisible = _canEdit;
 
-			edit.Text = _canEdit ? "Valider" : "Editer";
+			((ToolbarItem)sender).Text = _canEdit ? "Valider" : "Modifier";
 		}
 
 	}
