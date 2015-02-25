@@ -22,7 +22,7 @@ namespace GeStock {
 			InitializeComponent ();
 
 			edit = new ToolbarItem {
-				Text = "Editer",
+				Text = "Modifier",
 				Command = new Command(ShowEditPage)
 			};
 
