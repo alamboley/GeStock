@@ -22,6 +22,7 @@ namespace GeStock
 			database = DependencyService.Get<ISQLite> ().GetConnection ();
 			// create the tables
 			database.CreateTable<GeStockItem>();
+			database.CreateTable<Category>();
 		}
 		public IEnumerable<GeStockItem> GetItems ()
 		{
@@ -63,6 +64,13 @@ namespace GeStock
 
 			lock (locker) {
 				return database.Find<GeStockItem> (x => x.Name == name);
+			}
+		}
+
+		public Category GetCategory(int id) {
+
+			lock (locker) {
+				return database.Table<Category>().FirstOrDefault(x => x.ID == id);
 			}
 		}
 	}

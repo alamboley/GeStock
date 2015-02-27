@@ -1,19 +1,17 @@
 ﻿using System;
 using SQLite.Net.Attributes;
 
-namespace GeStock
-{
-	public class GeStockItem
-	{
-		public GeStockItem ()
+namespace GeStock {
+
+	public class Category {
+
+		public Category () 
 		{
 		}
 
 		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
 		public string Name { get; set; }
-		public int Quantity { get; set; }
-		public int Category { get; set; }
 	}
 }
 

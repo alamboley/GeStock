@@ -38,8 +38,8 @@ namespace GeStock {
 			get { return quantity; }
 		}
 
-		int category;
-		public int Category {
+		string category;
+		public string Category {
 
 			set {
 				if (category != value) {
@@ -58,14 +58,14 @@ namespace GeStock {
 
 			quantity = StockItem.Quantity;
 			name = StockItem.Name;
-			category = StockItem.Category;
+			category = App.Database.GetCategory(StockItem.Category).Name;
 		}
 
 		public void Save() {
 
 			StockItem.Name = name;
 			StockItem.Quantity = quantity;
-			StockItem.Category = category;
+			//StockItem.Category = category;
 
 			App.Database.SaveItem (StockItem);
 		}
