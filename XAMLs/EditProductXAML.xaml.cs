@@ -40,13 +40,14 @@ namespace GeStock {
 
 		void SaveAndComeBack(object sender, EventArgs e) {
 
-			_geStockItemViewModel.Category = CategoryPicker.Items [CategoryPicker.SelectedIndex];
+			if (CategoryPicker.SelectedIndex != -1) {
 
-			foreach (Category category in categories)
-				if (category.Name == _geStockItemViewModel.Category) {
-					_geStockItemViewModel.CategoryIndex = category.ID;
-					break;
-				}
+				_geStockItemViewModel.Category = CategoryPicker.Items [CategoryPicker.SelectedIndex];
+
+				Category category = categories.First (x => x.Name == _geStockItemViewModel.Category);
+
+				_geStockItemViewModel.CategoryIndex = category.ID;
+			}
 
 			_geStockItemViewModel.Save ();
 			_saved = true;

@@ -68,7 +68,6 @@ namespace GeStock {
 
 			Name = StockItem.Name = originalStockItem.Name;
 			Quantity = StockItem.Quantity = originalStockItem.Quantity;
-			//Category = StockItem.Category : originalStockItem.Category;
 		}
 
 		public void Save() {
