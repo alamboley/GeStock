@@ -10,11 +10,9 @@ namespace GeStock {
 
 		GeStockItemViewModel _geStockItemViewModel;
 
-		bool _canEdit = false;
-
 		public ProductXAML (GeStockItem geStockItem)
 		{
-			_geStockItemViewModel = new GeStockItemViewModel( geStockItem);;
+			_geStockItemViewModel = new GeStockItemViewModel( geStockItem);
 
 			BindingContext = _geStockItemViewModel;
 
@@ -23,14 +21,7 @@ namespace GeStock {
 
 		void ShowEditPage(object sender, EventArgs e) {
 
-			_canEdit = !_canEdit;
-
-			this.FindByName<Stepper> ("quantity").IsVisible = _canEdit;
-
-			if (!_canEdit)
-				_geStockItemViewModel.Save ();
-
-			((ToolbarItem)sender).Text = _canEdit ? "Valider" : "Modifier";
+			Navigation.PushAsync(new EditProductXAML(_geStockItemViewModel));
 		}
 
 	}

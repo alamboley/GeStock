@@ -17,7 +17,6 @@
 		<StackLayout Orientation="Horizontal">
 			<Label Text="Quantité :" />
 			<Label Text="{Binding Quantity}" />
-			<Stepper x:Name="quantity" Minimum="0" Increment="1" Value="{Binding Quantity}" IsVisible="false" />
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">

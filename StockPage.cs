@@ -37,8 +37,7 @@ namespace GeStock
 
 				GeStockItem geStockItem = (GeStockItem)e.SelectedItem;
 
-				var produit = new ProductXAML (geStockItem);
-				Navigation.PushAsync(produit);
+				Navigation.PushAsync(new ProductXAML (geStockItem));
 			};
 
 			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteItemCell", (sender, arg) => {

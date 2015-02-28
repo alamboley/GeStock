@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeStock.EditProductXAML" Title="Modifier">
+	
+	<ContentPage.ToolbarItems>
+
+		<ToolbarItem Text="Valider" Activated="SaveAndComeBack" />
+
+	</ContentPage.ToolbarItems>
+
+	<ContentPage.Content>
+
+		<StackLayout VerticalOptions ="FillAndExpand">
+
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Nom :" />
+				<Label Text="{Binding Name}" />
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Quantité :" />
+				<Label Text="{Binding Quantity}" />
+				<Stepper x:Name="quantity" Minimum="0" Increment="1" Value="{Binding Quantity}" />
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Catégorie :" />
+				<Label Text="{Binding Category}" />
+			</StackLayout>
+
+		</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>
