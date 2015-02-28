@@ -11,11 +11,12 @@ namespace GeStock {
 		bool _saved = false;
 
 		GeStockItemViewModel _geStockItemViewModel;
-		GeStockItemViewModel _geStockItemViewModelOriginal;
+		GeStockItem _geStockItemOriginal;
 
 		public EditProductXAML (GeStockItemViewModel geStockItemViewModel) {
 
-			_geStockItemViewModelOriginal = geStockItemViewModel;
+			_geStockItemOriginal = new GeStockItem (geStockItemViewModel.StockItem);
+
 			_geStockItemViewModel = geStockItemViewModel;
 
 			BindingContext = _geStockItemViewModel;
@@ -27,9 +28,7 @@ namespace GeStock {
 			base.OnDisappearing();
 
 			if (!_saved)
-				_geStockItemViewModel = _geStockItemViewModelOriginal;
-
-			Debug.WriteLine (_geStockItemViewModel.Quantity + " ------ " + _geStockItemViewModelOriginal.Quantity);
+				_geStockItemViewModel.Quantity = _geStockItemOriginal.Quantity;
 		}
 
 		void SaveAndComeBack(object sender, EventArgs e) {

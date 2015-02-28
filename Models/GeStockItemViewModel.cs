@@ -8,7 +8,7 @@ namespace GeStock {
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		GeStockItem StockItem;
+		public GeStockItem StockItem { get; private set; }
 
 		string name;
 		public string Name {
