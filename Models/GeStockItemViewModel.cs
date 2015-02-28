@@ -75,7 +75,7 @@ namespace GeStock {
 
 			StockItem.Name = name;
 			StockItem.Quantity = quantity;
-			//StockItem.Category = category;
+			StockItem.Category = CategoryIndex;
 
 			App.Database.SaveItem (StockItem);
 		}

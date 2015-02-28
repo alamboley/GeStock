@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Xamarin.Forms;
 using System.Diagnostics;
 
@@ -13,6 +13,8 @@ namespace GeStock {
 		GeStockItemViewModel _geStockItemViewModel;
 		GeStockItem _geStockItemOriginal;
 
+		IEnumerable<Category> categories;
+
 		public EditProductXAML (GeStockItemViewModel geStockItemViewModel) {
 
 			_geStockItemOriginal = new GeStockItem (geStockItemViewModel.StockItem);
@@ -23,12 +25,10 @@ namespace GeStock {
 
 			InitializeComponent ();
 
-			var categories = App.Database.GetCategories ();
+			categories = App.Database.GetCategories ();
 
 			foreach (Category category in categories)
 				CategoryPicker.Items.Add (category.Name);
-
-			CategoryPicker.SelectedIndex = _geStockItemViewModel.CategoryIndex;
 		}
 
 		override protected void OnDisappearing() {
@@ -39,6 +39,14 @@ namespace GeStock {
 		}
 
 		void SaveAndComeBack(object sender, EventArgs e) {
+
+			_geStockItemViewModel.Category = CategoryPicker.Items [CategoryPicker.SelectedIndex];
+
+			foreach (Category category in categories)
+				if (category.Name == _geStockItemViewModel.Category) {
+					_geStockItemViewModel.CategoryIndex = category.ID;
+					break;
+				}
 
 			_geStockItemViewModel.Save ();
 			_saved = true;

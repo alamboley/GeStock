@@ -24,7 +24,7 @@
 
 			<StackLayout Orientation="Horizontal">
 				<Label Text="Catégorie :" />
-				<Picker x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" />
+				<Picker x:Name="CategoryPicker" Title="{Binding Category}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
 
 		</StackLayout>
