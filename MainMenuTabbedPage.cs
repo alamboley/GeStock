@@ -10,9 +10,7 @@ namespace GeStock
 		{
 			Title = "TabbedPage";
 
-			Children.Add(new NavigationPage(new StockPage()) {
-				Title = "Stock"
-			});
+			Children.Add(new NavigationPageStock(new StockPage()));
 
 			Children.Add(new NavigationPage(new SearchPage()) {
 				Title = "Rechercher"

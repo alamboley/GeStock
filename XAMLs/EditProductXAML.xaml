@@ -13,7 +13,7 @@
 
 			<StackLayout Orientation="Horizontal">
 				<Label Text="Nom :" />
-				<Label Text="{Binding Name}" />
+				<Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">

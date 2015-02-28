@@ -28,7 +28,7 @@ namespace GeStock {
 			base.OnDisappearing();
 
 			if (!_saved)
-				_geStockItemViewModel.Quantity = _geStockItemOriginal.Quantity;
+				_geStockItemViewModel.Restore (_geStockItemOriginal);
 		}
 
 		void SaveAndComeBack(object sender, EventArgs e) {

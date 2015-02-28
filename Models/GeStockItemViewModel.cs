@@ -61,6 +61,13 @@ namespace GeStock {
 			category = App.Database.GetCategory(StockItem.Category).Name;
 		}
 
+		public void Restore(GeStockItem originalStockItem) {
+
+			Name = StockItem.Name = originalStockItem.Name;
+			Quantity = StockItem.Quantity = originalStockItem.Quantity;
+			//Category = StockItem.Category : originalStockItem.Category;
+		}
+
 		public void Save() {
 
 			StockItem.Name = name;
