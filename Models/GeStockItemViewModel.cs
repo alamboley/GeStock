@@ -52,6 +52,8 @@ namespace GeStock {
 			get { return category; }
 		}
 
+		public int CategoryIndex { get ; set;}
+
 		public GeStockItemViewModel (GeStockItem stockItem) {
 
 			StockItem = stockItem;
@@ -59,6 +61,7 @@ namespace GeStock {
 			quantity = StockItem.Quantity;
 			name = StockItem.Name;
 			category = App.Database.GetCategory(StockItem.Category).Name;
+			CategoryIndex = StockItem.Category;
 		}
 
 		public void Restore(GeStockItem originalStockItem) {

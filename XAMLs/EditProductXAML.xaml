@@ -19,12 +19,12 @@
 			<StackLayout Orientation="Horizontal">
 				<Label Text="Quantité :" />
 				<Label Text="{Binding Quantity}" />
-				<Stepper x:Name="quantity" Minimum="0" Increment="1" Value="{Binding Quantity}" />
+				<Stepper Minimum="0" Increment="1" Value="{Binding Quantity}" />
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">
 				<Label Text="Catégorie :" />
-				<Label Text="{Binding Category}" />
+				<Picker x:Name="CategoryPicker" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
 
 		</StackLayout>

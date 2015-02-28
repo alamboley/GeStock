@@ -73,6 +73,13 @@ namespace GeStock
 				return database.Table<Category>().FirstOrDefault(x => x.ID == id);
 			}
 		}
+
+		public IEnumerable<Category> GetCategories ()
+		{
+			lock (locker) {
+				return (from i in database.Table<Category>() select i).ToList();
+			}
+		}
 	}
 }
 

@@ -22,6 +22,13 @@ namespace GeStock {
 			BindingContext = _geStockItemViewModel;
 
 			InitializeComponent ();
+
+			var categories = App.Database.GetCategories ();
+
+			foreach (Category category in categories)
+				CategoryPicker.Items.Add (category.Name);
+
+			CategoryPicker.SelectedIndex = _geStockItemViewModel.CategoryIndex;
 		}
 
 		override protected void OnDisappearing() {
