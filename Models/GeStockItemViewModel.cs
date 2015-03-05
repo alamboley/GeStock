@@ -60,7 +60,10 @@ namespace GeStock {
 
 			quantity = StockItem.Quantity;
 			name = StockItem.Name;
-			category = App.Database.GetCategory(StockItem.Category).Name;
+
+			if (StockItem.ID != 0)
+				category = App.Database.GetCategory(StockItem.Category).Name;
+
 			CategoryIndex = StockItem.Category;
 		}
 

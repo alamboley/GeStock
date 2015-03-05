@@ -8,8 +8,6 @@ namespace GeStock
 	{
 		public MainMenuTabbedPage ()
 		{
-			Title = "TabbedPage";
-
 			Children.Add(new NavigationPageStock(new StockPage()));
 
 			Children.Add(new NavigationPage(new SearchPage()) {
@@ -17,6 +15,10 @@ namespace GeStock
 			});
 
 			Children.Add(new InventoryPage());
+
+			Children.Add(new NavigationPage(new AddPage()) {
+				Title = "Ajouter"
+			});
 		}
 	}
 }
