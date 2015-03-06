@@ -53,10 +53,10 @@ namespace GeStock
 				}
 			}
 		}
-		public int DeleteItem(int id)
+		public int Delete<T>(T objectToDelete)
 		{
 			lock (locker) {
-				return database.Delete<GeStockItem>(id);
+				return database.Delete<T> (((IDBObject)objectToDelete).ID);
 			}
 		}
 

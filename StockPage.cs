@@ -43,6 +43,8 @@ namespace GeStock
 			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteItemCell", (sender, arg) => {
 
 				_myItems.Remove(arg);
+
+				App.Database.Delete((GeStockItem)arg);
 			});
 		}
 
