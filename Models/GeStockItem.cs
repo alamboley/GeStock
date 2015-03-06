@@ -3,7 +3,7 @@ using SQLite.Net.Attributes;
 
 namespace GeStock
 {
-	public class GeStockItem
+	public class GeStockItem : IDBObject
 	{
 		public GeStockItem ()
 		{

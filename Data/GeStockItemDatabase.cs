@@ -42,14 +42,14 @@ namespace GeStock
 				return database.Table<GeStockItem>().FirstOrDefault(x => x.ID == id);
 			}
 		}
-		public int SaveItem (GeStockItem item)
+		public int Save (IDBObject idbObject)
 		{
 			lock (locker) {
-				if (item.ID != 0) {
-					database.Update(item);
-					return item.ID;
+				if (idbObject.ID != 0) {
+					database.Update(idbObject);
+					return idbObject.ID;
 				} else {
-					return database.Insert(item);
+					return database.Insert(idbObject);
 				}
 			}
 		}

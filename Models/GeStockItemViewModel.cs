@@ -79,7 +79,7 @@ namespace GeStock {
 			StockItem.Quantity = quantity;
 			StockItem.Category = CategoryIndex;
 
-			App.Database.SaveItem (StockItem);
+			App.Database.Save (StockItem);
 		}
 
 		protected void OnPropertyChanged(string propertyName) {

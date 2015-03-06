@@ -12,21 +12,37 @@ namespace GeStock {
 			Title = "Ajouter";
 
 			Button product = new Button {
-				Text = "Produit",
+				Text = "Produit"
+			};
+
+			Button category = new Button {
+				Text = "Catégorie"
 			};
 
 			Content = new StackLayout { 
 				Children = {
-					product
+					product,
+					category
 				}
 			};
 
 			product.Clicked += OnButtonClicked;
+			category.Clicked += OnButtonClicked;
 		}
 
 		void OnButtonClicked(object sender, EventArgs e) {
 
-			Navigation.PushAsync(new NewProductXAML());
+			switch (((Button)sender).Text) {
+
+				case "Produit":
+					Navigation.PushAsync (new NewProductXAML ());
+					break;
+
+				case "Catégorie":
+					Navigation.PushAsync (new NewCategoryXAML ());
+					break;
+			}
+
 		}
 	}
 }
