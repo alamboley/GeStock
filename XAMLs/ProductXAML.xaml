@@ -29,6 +29,11 @@
 			<Label Text="{Binding Category}" />
 		</StackLayout>
 
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Catégorie description :" />
+			<Label x:Name="CategoryDescription" Text="" />
+		</StackLayout>
+
 	</StackLayout>
 
 </ContentPage>
