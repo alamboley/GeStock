@@ -20,6 +20,11 @@
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">
+			<Label Text="Description :" />
+			<Label Text="{Binding Description}" />
+		</StackLayout>
+
+		<StackLayout Orientation="Horizontal">
 			<Label Text="Catégorie :" />
 			<Label Text="{Binding Category}" />
 		</StackLayout>

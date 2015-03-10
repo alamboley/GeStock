@@ -3,9 +3,7 @@ using System.ComponentModel;
 
 namespace GeStock {
 
-	public class CategoryViewModel {
-
-		public event PropertyChangedEventHandler PropertyChanged;
+	public class CategoryViewModel:AViewModel {
 
 		public Category Category { get; private set; }
 
@@ -23,6 +21,20 @@ namespace GeStock {
 			get { return name; }
 		}
 
+		string description;
+		public string Description {
+
+			set {
+				if (description != value) {
+					description = value;
+
+					OnPropertyChanged ("Description");
+				}
+			}
+
+			get { return description; }
+		}
+
 		public CategoryViewModel () {
 		}
 
@@ -31,18 +43,15 @@ namespace GeStock {
 			Category = category;
 
 			name = Category.Name;
+			description = Category.Description;
 		}
 
 		public void Save() {
 
 			Category.Name = name;
+			Category.Description = description;
 
 			App.Database.Save (Category);
-		}
-		protected void OnPropertyChanged(string propertyName) {
-
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

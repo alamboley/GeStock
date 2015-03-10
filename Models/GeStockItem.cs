@@ -14,6 +14,7 @@ namespace GeStock
 			ID = stockItem.ID;
 			Name = stockItem.Name;
 			Quantity = stockItem.Quantity;
+			Description = stockItem.Description;
 			Category = stockItem.Category;
 		}
 
@@ -21,6 +22,7 @@ namespace GeStock
 		public int ID { get; set; }
 		public string Name { get; set; }
 		public int Quantity { get; set; }
+		public string Description { get; set; }
 		public int Category { get; set; }
 	}
 }

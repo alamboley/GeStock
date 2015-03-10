@@ -4,9 +4,7 @@ using System.Diagnostics;
 
 namespace GeStock {
 
-	public class GeStockItemViewModel:INotifyPropertyChanged {
-
-		public event PropertyChangedEventHandler PropertyChanged;
+	public class GeStockItemViewModel:AViewModel {
 
 		public GeStockItem StockItem { get; private set; }
 
@@ -38,6 +36,20 @@ namespace GeStock {
 			get { return quantity; }
 		}
 
+		string description;
+		public string Description {
+
+			set {
+				if (description != value) {
+					description = value;
+
+					OnPropertyChanged ("Description");
+				}
+			}
+
+			get { return description; }
+		}
+
 		string category;
 		public string Category {
 
@@ -60,6 +72,7 @@ namespace GeStock {
 
 			quantity = StockItem.Quantity;
 			name = StockItem.Name;
+			description = StockItem.Description;
 
 			if (StockItem.ID != 0)
 				category = App.Database.GetCategory(StockItem.Category).Name;
@@ -71,21 +84,17 @@ namespace GeStock {
 
 			Name = StockItem.Name = originalStockItem.Name;
 			Quantity = StockItem.Quantity = originalStockItem.Quantity;
+			Description = StockItem.Description = originalStockItem.Description;
 		}
 
 		public void Save() {
 
 			StockItem.Name = name;
 			StockItem.Quantity = quantity;
+			StockItem.Description = description;
 			StockItem.Category = CategoryIndex;
 
 			App.Database.Save (StockItem);
-		}
-
-		protected void OnPropertyChanged(string propertyName) {
-
-			if (PropertyChanged != null)
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

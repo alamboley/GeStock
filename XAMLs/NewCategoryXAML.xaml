@@ -16,6 +16,11 @@
 				<Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
 
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Description :" />
+				<Editor Text="{Binding Description}" HorizontalOptions="FillAndExpand" />
+			</StackLayout>
+
 		</StackLayout>
 
 	</ContentPage.Content>
