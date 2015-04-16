@@ -4,17 +4,17 @@ using Xamarin.Forms;
 
 namespace GeStock
 {
-	public class InventoryPage : ContentPage
+	public class ControlKitPage : ContentPage
 	{
-		public InventoryPage ()
+		public ControlKitPage ()
 		{
-			Title = "Inventaire";
+			Title = "Kit de Commande";
 
 			Padding = new Thickness (10, Device.OnPlatform (20, 5, 0), 10, 5);
 
 			Content = new StackLayout { 
 				Children = {
-					new Label { Text = "Inventaire", HorizontalOptions = LayoutOptions.Center }
+					new Label { Text = "Kit de Commande", HorizontalOptions = LayoutOptions.Center }
 				}
 			};
 		}

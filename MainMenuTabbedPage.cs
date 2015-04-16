@@ -14,7 +14,7 @@ namespace GeStock
 				Title = "Rechercher"
 			});
 
-			Children.Add(new InventoryPage());
+			Children.Add(new ControlKitPage());
 
 			Children.Add(new NavigationPage(new AddPage()) {
 				Title = "Ajouter"
