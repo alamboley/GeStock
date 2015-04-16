@@ -25,6 +25,11 @@
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">
+			<Label Text="Emplacement :" />
+			<Label Text="{Binding Location}" />
+		</StackLayout>
+
+		<StackLayout Orientation="Horizontal">
 			<Label Text="Catégorie :" />
 			<Label Text="{Binding Category}" />
 		</StackLayout>

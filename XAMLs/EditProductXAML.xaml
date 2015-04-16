@@ -28,6 +28,11 @@
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">
+				<Label Text="Emplacement :" />
+				<Editor Text="{Binding Location}" HorizontalOptions="FillAndExpand" />
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
 				<Label Text="Catégorie :" />
 				<Picker x:Name="CategoryPicker" Title="{Binding Category}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>

@@ -50,6 +50,20 @@ namespace GeStock {
 			get { return description; }
 		}
 
+		string location;
+		public string Location {
+
+			set {
+				if (location != value) {
+					location = value;
+
+					OnPropertyChanged ("Location");
+				}
+			}
+
+			get { return location; }
+		}
+
 		string category;
 		public string Category {
 
@@ -73,6 +87,7 @@ namespace GeStock {
 			quantity = StockItem.Quantity;
 			name = StockItem.Name;
 			description = StockItem.Description;
+			location = StockItem.Location;
 
 			if (StockItem.ID != 0)
 				category = App.Database.GetCategory(StockItem.Category).Name;
@@ -85,6 +100,7 @@ namespace GeStock {
 			Name = StockItem.Name = originalStockItem.Name;
 			Quantity = StockItem.Quantity = originalStockItem.Quantity;
 			Description = StockItem.Description = originalStockItem.Description;
+			Location = StockItem.Location = originalStockItem.Location;
 		}
 
 		public void Save() {
@@ -92,6 +108,7 @@ namespace GeStock {
 			StockItem.Name = name;
 			StockItem.Quantity = quantity;
 			StockItem.Description = description;
+			StockItem.Location = location;
 			StockItem.Category = CategoryIndex;
 
 			App.Database.Save (StockItem);
