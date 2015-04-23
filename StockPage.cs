@@ -28,7 +28,7 @@ namespace GeStock
 
 			Content = new StackLayout { 
 				Children = {
-					new Label { Text = "Stock", HorizontalOptions = LayoutOptions.Center },
+					new Label { HorizontalOptions = LayoutOptions.Center },
 					listView
 				}
 			};

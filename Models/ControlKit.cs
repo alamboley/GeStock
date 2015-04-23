@@ -2,7 +2,8 @@
 using SQLite.Net.Attributes;
 
 namespace GeStock {
-	public class ControlKit {
+	
+	public class ControlKit:IDBObject {
 		public ControlKit ()
 		{
 		}

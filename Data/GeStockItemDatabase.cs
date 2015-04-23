@@ -30,6 +30,14 @@ namespace GeStock
 				return (from i in database.Table<GeStockItem>() select i).ToList();
 			}
 		}
+
+		public IEnumerable<ControlKit> GetControlKits() {
+			
+			lock (locker) {
+				return (from i in database.Table<ControlKit>() select i).ToList();
+			}
+		}
+
 		public IEnumerable<GeStockItem> GetItemsNotDone ()
 		{
 			lock (locker) {

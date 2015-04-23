@@ -14,7 +14,9 @@ namespace GeStock
 				Title = "Rechercher"
 			});
 
-			Children.Add(new ControlKitPage());
+			Children.Add(new NavigationPage(new ControlKitPage()){
+				Title = "Kit de Commande"
+			});
 
 			Children.Add(new NavigationPage(new AddPage()) {
 				Title = "Ajouter"
