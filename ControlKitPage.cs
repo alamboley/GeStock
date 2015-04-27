@@ -2,7 +2,6 @@
 
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace GeStock
 {
@@ -36,9 +35,7 @@ namespace GeStock
 
 				ControlKit controlKit = (ControlKit)e.SelectedItem;
 
-				Debug.WriteLine("controlKit selected");
-
-				//Navigation.PushAsync(new ProductXAML (controlKit));
+				Navigation.PushAsync(new ControlKitXAML (controlKit));
 			};
 		}
 
