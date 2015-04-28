@@ -5,6 +5,8 @@ namespace GeStock {
 
 	public class GeStockItemCell : ViewCell {
 
+		static public bool showDelete = true;
+
 		public GeStockItemCell() {
 
 			Label name = new Label ();
@@ -27,16 +29,19 @@ namespace GeStock {
 
 			View = layout;
 
-			var deleteAction = new MenuItem { Text = "Delete", IsDestructive = true };
-			deleteAction.SetBinding (MenuItem.CommandParameterProperty, new Binding ("."));
-			deleteAction.Clicked += (sender, e) => {
+			if (showDelete) {
 
-				var mi = ((MenuItem)sender);
+				var deleteAction = new MenuItem { Text = "Delete", IsDestructive = true };
+				deleteAction.SetBinding (MenuItem.CommandParameterProperty, new Binding ("."));
+				deleteAction.Clicked += (sender, e) => {
 
-				MessagingCenter.Send<ListView, GeStockItem> ((ListView)Parent, "deleteItemCell", (GeStockItem)mi.CommandParameter);
-			};
+					var mi = ((MenuItem)sender);
 
-			ContextActions.Add (deleteAction);
+					MessagingCenter.Send<ListView, GeStockItem> ((ListView)Parent, "deleteItemCell", (GeStockItem)mi.CommandParameter);
+				};
+
+				ContextActions.Add (deleteAction);
+			}
 		}
 	}
 }

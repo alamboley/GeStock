@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace GeStock {
 	
 	public partial class ControlKitXAML : ContentPage {
 
 		ControlKitViewModel _controlKitViewModel;
+
+		ObservableCollection<GeStockItem> _myItems;
 
 		public ControlKitXAML (ControlKit controlKit)
 		{
@@ -17,11 +20,22 @@ namespace GeStock {
 
 			InitializeComponent ();
 
+			_myItems = new ObservableCollection<GeStockItem>();
+			ObjectsList.ItemsSource = _myItems;
+
+			GeStockItemCell.showDelete = false;
+
+			ObjectsList.ItemTemplate = new DataTemplate (typeof(GeStockItemCell));
+
 			dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject (_controlKitViewModel.Elements);
 
 			foreach (var property in json) {
 
-				Debug.WriteLine(property.Name + ":" + property.Value);
+				GeStockItem item = App.Database.GetItem (Convert.ToUInt16(property.Name));
+
+				item.Quantity = Convert.ToUInt16(property.Value);
+
+				_myItems.Add (item);
 			}
 		}
 

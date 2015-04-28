@@ -8,6 +8,10 @@
 			<Label Text="{Binding Name}" />
 		</StackLayout>
 
+		<StackLayout Orientation="Horizontal">
+			<ListView x:Name="ObjectsList" />
+		</StackLayout>
+
 	</StackLayout>
 
 </ContentPage>

@@ -51,6 +51,8 @@ namespace GeStock
 		override protected void OnAppearing() {
 			base.OnAppearing();
 
+			GeStockItemCell.showDelete = true;
+
 			_refreshList();
 		}
 
