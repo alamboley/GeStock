@@ -31,9 +31,9 @@ namespace GeStock {
 
 			foreach (var property in json) {
 
-				GeStockItem item = App.Database.GetItem (Convert.ToUInt16(property.Name));
+				GeStockItem item = App.Database.GetItem (Convert.ToUInt16((string) property.Name));
 
-				item.Quantity = Convert.ToUInt16(property.Value);
+				item.Quantity = Convert.ToUInt16((string) property.Value);
 
 				_myItems.Add (item);
 			}
