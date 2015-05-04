@@ -29,7 +29,9 @@ namespace GeStock {
 				categoryMV.Save ();
 
 				NewProduct ();
-			}
+
+			} else 
+				DisplayAlert ("Attention", "Vous devez entrer un nom pour la catégorie !", "Ok");
 		}
 	}
 }

@@ -19,15 +19,21 @@ namespace GeStock {
 				Text = "Catégorie"
 			};
 
+			Button controlKit = new Button {
+				Text = "Kit de Commande"
+			};
+
 			Content = new StackLayout { 
 				Children = {
 					product,
-					category
+					category,
+					controlKit
 				}
 			};
 
 			product.Clicked += OnButtonClicked;
 			category.Clicked += OnButtonClicked;
+			controlKit.Clicked += OnButtonClicked;
 		}
 
 		void OnButtonClicked(object sender, EventArgs e) {
@@ -40,6 +46,10 @@ namespace GeStock {
 
 				case "Catégorie":
 					Navigation.PushAsync (new NewCategoryXAML ());
+					break;
+
+				case "Kit de Commande":
+					Navigation.PushAsync (new NewControlKitXAML ());
 					break;
 			}
 

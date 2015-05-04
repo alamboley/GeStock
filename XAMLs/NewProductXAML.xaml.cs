@@ -37,7 +37,7 @@ namespace GeStock {
 
 		void SaveAndNewProduct(object sender, EventArgs e) {
 
-			if (!String.IsNullOrEmpty(stockItemMV.Name)) {
+			if (!String.IsNullOrEmpty (stockItemMV.Name)) {
 
 				stockItemMV.Category = CategoryPicker.Items [CategoryPicker.SelectedIndex];
 
@@ -48,7 +48,9 @@ namespace GeStock {
 				stockItemMV.Save ();
 
 				NewProduct ();
-			}
+
+			} else
+				DisplayAlert ("Attention", "Vous devez entrer un nom pour le produit !", "Ok");
 		}
 	}
 }
