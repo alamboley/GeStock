@@ -21,9 +21,6 @@ namespace GeStock
 			};
 
 			_myItems = new ObservableCollection<GeStockItem>();
-
-			_refreshList();
-
 			listView.ItemsSource = _myItems;
 
 			Content = new StackLayout { 

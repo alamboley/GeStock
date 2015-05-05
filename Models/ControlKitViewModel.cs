@@ -45,6 +45,12 @@ namespace GeStock {
 			elements = ControlKit.Elements;
 		}
 
+		public void Restore(ControlKit originalControlKit) {
+
+			Name = ControlKit.Name = originalControlKit.Name;
+			Elements = ControlKit.Elements = originalControlKit.Elements;
+		}
+
 		public void Save() {
 
 			ControlKit.Name = name;

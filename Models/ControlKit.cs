@@ -8,6 +8,13 @@ namespace GeStock {
 		{
 		}
 
+		public ControlKit (ControlKit controlKit) {
+
+			ID = controlKit.ID;
+			Name = controlKit.Name;
+			Elements = controlKit.Elements;
+		}
+
 		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
 		public string Name { get; set; }

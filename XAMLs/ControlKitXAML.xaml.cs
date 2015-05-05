@@ -19,6 +19,20 @@ namespace GeStock {
 			BindingContext = _controlKitViewModel;
 
 			InitializeComponent ();
+		}
+
+		void ShowEditPage(object sender, EventArgs e) {
+
+			Navigation.PushAsync(new EditControlKitXAML(_controlKitViewModel));
+		}
+
+		override protected void OnAppearing() {
+			base.OnAppearing();
+
+			_refresh();
+		}
+
+		void _refresh() {
 
 			_myItems = new ObservableCollection<GeStockItem>();
 			ObjectsList.ItemsSource = _myItems;
@@ -37,11 +51,6 @@ namespace GeStock {
 
 				_myItems.Add (item);
 			}
-		}
-
-		void ShowEditPage(object sender, EventArgs e) {
-
-			//Navigation.PushAsync(new EditProductXAML(_geStockItemViewModel));
 		}
 	}
 }
