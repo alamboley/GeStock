@@ -48,8 +48,8 @@ namespace GeStock
 		override protected void OnAppearing() {
 			base.OnAppearing();
 
-			GeStockItemCell.showDelete = true;
-			GeStockItemCell.IdMessage = "deleteControlKit";
+			ControlKitCell.showDelete = true;
+			ControlKitCell.IdMessage = "deleteControlKit";
 
 			_refreshList();
 		}
