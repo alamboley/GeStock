@@ -38,7 +38,7 @@ namespace GeStock
 				Navigation.PushAsync(new ControlKitXAML (controlKit));
 			};
 
-			MessagingCenter.Subscribe<ListView, ControlKit> (listView, "deleteItemCell", (sender, arg) => {
+			MessagingCenter.Subscribe<ListView, ControlKit> (listView, "deleteControlKit", (sender, arg) => {
 				_myItems.Remove(arg);
 
 				App.Database.Delete((ControlKit) arg);
@@ -47,6 +47,9 @@ namespace GeStock
 
 		override protected void OnAppearing() {
 			base.OnAppearing();
+
+			GeStockItemCell.showDelete = true;
+			GeStockItemCell.IdMessage = "deleteControlKit";
 
 			_refreshList();
 		}

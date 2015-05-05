@@ -37,7 +37,7 @@ namespace GeStock
 				Navigation.PushAsync(new ProductXAML (geStockItem));
 			};
 
-			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteItemCell", (sender, arg) => {
+			MessagingCenter.Subscribe<ListView, GeStockItem> (listView, "deleteProduct", (sender, arg) => {
 
 				_myItems.Remove(arg);
 
@@ -49,6 +49,7 @@ namespace GeStock
 			base.OnAppearing();
 
 			GeStockItemCell.showDelete = true;
+			GeStockItemCell.IdMessage = "deleteProduct";
 
 			_refreshList();
 		}

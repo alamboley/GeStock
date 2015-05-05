@@ -34,8 +34,9 @@ namespace GeStock {
 			ObjectsList.ItemTemplate = new DataTemplate (typeof(GeStockItemCell));
 
 			GeStockItemCell.showDelete = true;
+			GeStockItemCell.IdMessage = "deleteProductFromNewControlKit";
 
-			MessagingCenter.Subscribe<ListView, GeStockItem> (ObjectsList, "deleteItemCell", (sender, arg) => {
+			MessagingCenter.Subscribe<ListView, GeStockItem> (ObjectsList, "deleteProductFromNewControlKit", (sender, arg) => {
 				_myItems.Remove(arg);
 			});
 

@@ -38,6 +38,7 @@ namespace GeStock {
 			LabelQuantity.Text = quantity.ToString();
 
 			GeStockItemCell.showDelete = true;
+			GeStockItemCell.IdMessage = "deleteProductFromControlKit";
 
 			_myItems = new ObservableCollection<GeStockItem>();
 			ObjectsList.ItemsSource = _myItems;
@@ -54,7 +55,7 @@ namespace GeStock {
 				_myItems.Add (item);
 			}
 
-			MessagingCenter.Subscribe<ListView, GeStockItem> (ObjectsList, "deleteItemCell", (sender, arg) => {
+			MessagingCenter.Subscribe<ListView, GeStockItem> (ObjectsList, "deleteProductFromControlKit", (sender, arg) => {
 				_myItems.Remove(arg);
 			});
 

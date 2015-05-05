@@ -6,6 +6,7 @@ namespace GeStock {
 	public class GeStockItemCell : ViewCell {
 
 		static public bool showDelete = true;
+		static public string IdMessage;
 
 		public GeStockItemCell() {
 
@@ -37,7 +38,7 @@ namespace GeStock {
 
 					var mi = ((MenuItem)sender);
 
-					MessagingCenter.Send<ListView, GeStockItem> ((ListView)Parent, "deleteItemCell", (GeStockItem)mi.CommandParameter);
+					MessagingCenter.Send<ListView, GeStockItem> ((ListView)Parent, IdMessage, (GeStockItem)mi.CommandParameter);
 				};
 
 				ContextActions.Add (deleteAction);
