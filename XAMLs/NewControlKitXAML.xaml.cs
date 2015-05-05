@@ -12,7 +12,6 @@ namespace GeStock {
 		ControlKitViewModel controlKitMV;
 		IEnumerable<GeStockItem> products;
 
-		ControlKitViewModel _controlKitViewModel;
 		ObservableCollection<GeStockItem> _myItems;
 
 		double quantity = 1;
@@ -34,6 +33,12 @@ namespace GeStock {
 			ObjectsList.ItemsSource = _myItems;
 			ObjectsList.ItemTemplate = new DataTemplate (typeof(GeStockItemCell));
 
+			GeStockItemCell.showDelete = true;
+
+			MessagingCenter.Subscribe<ListView, GeStockItem> (ObjectsList, "deleteItemCell", (sender, arg) => {
+				_myItems.Remove(arg);
+			});
+
 			NewControlKit ();
 		}
 
@@ -44,8 +49,6 @@ namespace GeStock {
 			BindingContext = controlKitMV;
 
 			_myItems.Clear ();
-
-			Debug.WriteLine ("là");
 		}
 
 		void AddProduct(object sender, EventArgs e) {
