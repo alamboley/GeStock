@@ -47,10 +47,16 @@ namespace GeStock {
 
 				GeStockItem item = App.Database.GetItem (Convert.ToUInt16((string) property.Name));
 
-				item.Quantity = Convert.ToUInt16((string) property.Value);
+				int quantity = Convert.ToUInt16((string) property.Value);
+
+				GeStockItemCell._useRedBG = quantity >= item.Quantity;
+
+				item.Quantity = quantity;
 
 				_myItems.Add (item);
 			}
+
+			GeStockItemCell._useRedBG = false;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace GeStock {
 
@@ -7,6 +8,8 @@ namespace GeStock {
 
 		static public bool showDelete = true;
 		static public string IdMessage;
+
+		static public bool _useRedBG = false;
 
 		public GeStockItemCell() {
 
@@ -29,6 +32,9 @@ namespace GeStock {
 			};
 
 			View = layout;
+
+			if (_useRedBG)
+				View.BackgroundColor = Color.Red;
 
 			if (showDelete) {
 

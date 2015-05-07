@@ -30,7 +30,7 @@
 				<Stepper x:Name="StepperQuantity" Minimum="1" Increment="1" PropertyChanged="QuantityChanged" />
 			</StackLayout>
 
-			<StackLayout Orientation="Horizontal">
+			<StackLayout Orientation="Horizontal" Padding="0, 0, 20, 0">
 				<Button Text="Ajouter" Clicked="AddProduct" HorizontalOptions="EndAndExpand" />
 			</StackLayout>
 
