@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace GeStock {
 	
@@ -20,12 +21,24 @@ namespace GeStock {
 
 			name.VerticalOptions = LayoutOptions.Center;
 
+			Button useKit = new Button ();
+
+			if (!_useRedBG) {
+				useKit.Text = "Sortir produits";
+				useKit.HorizontalOptions = LayoutOptions.EndAndExpand;
+			}
+			
+			useKit.Clicked += (sender, e) => {
+
+				Debug.WriteLine("clicked");
+			};
+
 			StackLayout layout = new StackLayout {
 
 				Padding = new Thickness(20, 0, 20, 0),
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.StartAndExpand,
-				Children = {name}
+				Children = {name, useKit}
 			};
 
 			View = layout;
