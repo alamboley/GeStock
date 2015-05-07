@@ -7,11 +7,16 @@ namespace GeStock {
 
 		static public bool showDelete = true;
 		static public string IdMessage;
+
+		static public bool _useRedBG = false;
 		
 		public ControlKitCell () {
 
 			Label name = new Label ();
 			name.SetBinding (Label.TextProperty, "Name");
+
+			if (_useRedBG)
+				name.BackgroundColor = Color.Red;
 
 			name.VerticalOptions = LayoutOptions.Center;
 

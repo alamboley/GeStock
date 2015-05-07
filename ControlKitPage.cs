@@ -60,8 +60,28 @@ namespace GeStock
 
 			var items = App.Database.GetControlKits();
 
-			foreach (ControlKit controlKit in items)
-				_myItems.Add(controlKit);
+			foreach (ControlKit controlKit in items) {
+
+				ControlKitCell._useRedBG = false;
+
+				dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject (controlKit.Elements);
+
+				foreach (var property in json) {
+
+					GeStockItem item = App.Database.GetItem (Convert.ToUInt16((string) property.Name));
+
+					int quantity = Convert.ToUInt16((string) property.Value);
+
+					if (quantity >= item.Quantity) {
+						ControlKitCell._useRedBG = true;
+						break;
+					}
+				}
+
+				_myItems.Add (controlKit);
+			}
+
+			ControlKitCell._useRedBG = false;
 		}
 	}
 }
