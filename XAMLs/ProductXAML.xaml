@@ -10,7 +10,7 @@
 	<StackLayout VerticalOptions ="FillAndExpand">
 
 		<StackLayout Orientation="Horizontal">
-			<Label Text="Nom :" />
+			<Label Text="Référence :" />
 			<Label Text="{Binding Name}" />
 		</StackLayout>
 
@@ -20,7 +20,7 @@
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">
-			<Label Text="Description :" />
+			<Label Text="Nom :" />
 			<Label Text="{Binding Description}" />
 		</StackLayout>
 
@@ -35,7 +35,7 @@
 		</StackLayout>
 
 		<StackLayout Orientation="Horizontal">
-			<Label Text="Catégorie description :" />
+			<Label Text="Description :" />
 			<Label x:Name="CategoryDescription" Text="" />
 		</StackLayout>
 

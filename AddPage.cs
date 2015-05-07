@@ -20,7 +20,7 @@ namespace GeStock {
 			};
 
 			Button controlKit = new Button {
-				Text = "Kit de Commande"
+				Text = "Kit"
 			};
 
 			Content = new StackLayout { 
@@ -48,7 +48,7 @@ namespace GeStock {
 					Navigation.PushAsync (new NewCategoryXAML ());
 					break;
 
-				case "Kit de Commande":
+				case "Kit":
 					Navigation.PushAsync (new NewControlKitXAML ());
 					break;
 			}

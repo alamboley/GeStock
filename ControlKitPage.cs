@@ -11,7 +11,7 @@ namespace GeStock
 
 		public ControlKitPage ()
 		{
-			Title = "Kit de Commande";
+			Title = "Kit";
 
 			ListView listView = new ListView {
 				RowHeight = 40,

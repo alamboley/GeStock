@@ -28,7 +28,7 @@
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">
-				<Button Text="Ajouter Produit" Clicked="AddProduct" HorizontalOptions="EndAndExpand" />
+				<Button Text="Ajouter" Clicked="AddProduct" HorizontalOptions="EndAndExpand" />
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">
