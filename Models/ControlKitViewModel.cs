@@ -33,6 +33,20 @@ namespace GeStock {
 
 			get { return elements; }
 		}
+
+		string description;
+		public string Description {
+
+			set {
+				if (description != value) {
+					description = value;
+
+					OnPropertyChanged ("Description");
+				}
+			}
+
+			get { return description; }
+		}
 		
 		public ControlKitViewModel () {
 		}
@@ -43,18 +57,21 @@ namespace GeStock {
 
 			name = ControlKit.Name;
 			elements = ControlKit.Elements;
+			description = ControlKit.Description;
 		}
 
 		public void Restore(ControlKit originalControlKit) {
 
 			Name = ControlKit.Name = originalControlKit.Name;
 			Elements = ControlKit.Elements = originalControlKit.Elements;
+			Description = ControlKit.Description = originalControlKit.Description;
 		}
 
 		public void Save() {
 
 			ControlKit.Name = name;
 			ControlKit.Elements = elements;
+			ControlKit.Description = description;
 
 			App.Database.Save (ControlKit);
 		}

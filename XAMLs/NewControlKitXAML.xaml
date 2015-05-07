@@ -15,6 +15,11 @@
 			</StackLayout>
 
 			<StackLayout Orientation="Horizontal">
+				<Label Text="Description :" />
+				<Entry Text="{Binding Description}" HorizontalOptions="FillAndExpand" />
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
 				<Label Text="Ajouter un produit :" />
 				<Picker x:Name="ProductPicker" Title="{Binding Product}" HorizontalOptions="FillAndExpand" />
 			</StackLayout>
