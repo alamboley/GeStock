@@ -49,7 +49,7 @@ namespace GeStock {
 
 				int quantity = Convert.ToUInt16((string) property.Value);
 
-				GeStockItemCell._useRedBG = quantity >= item.Quantity;
+				GeStockItemCell._useRedBG = quantity > item.Quantity;
 
 				item.Quantity = quantity;
 

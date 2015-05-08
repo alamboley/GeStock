@@ -2,6 +2,8 @@
 
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 
 namespace GeStock
 {
@@ -43,6 +45,26 @@ namespace GeStock
 
 				App.Database.Delete((ControlKit) arg);
 			});
+
+			MessagingCenter.Subscribe<ListView, string> (listView, "useKit", (sender, arg) => {
+
+				var kits = App.Database.GetControlKits();
+
+				ControlKit kit = kits.First (x => x.Name == arg);
+
+				dynamic json = Newtonsoft.Json.JsonConvert.DeserializeObject (kit.Elements);
+
+				foreach (var property in json) {
+
+					GeStockItem item = App.Database.GetItem (Convert.ToUInt16((string) property.Name));
+
+					item.Quantity -= Convert.ToUInt16((string) property.Value);
+
+					App.Database.Save(item);
+				}
+
+				_refreshList();
+			});
 		}
 
 		override protected void OnAppearing() {
@@ -72,7 +94,7 @@ namespace GeStock
 
 					int quantity = Convert.ToUInt16((string) property.Value);
 
-					if (quantity >= item.Quantity) {
+					if (quantity > item.Quantity) {
 						ControlKitCell._useRedBG = true;
 						break;
 					}

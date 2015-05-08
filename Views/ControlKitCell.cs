@@ -21,25 +21,32 @@ namespace GeStock {
 
 			name.VerticalOptions = LayoutOptions.Center;
 
-			Button useKit = new Button ();
+			Button useKit = null;
 
 			if (!_useRedBG) {
+				useKit = new Button ();
 				useKit.Text = "Sortir produits";
 				useKit.HorizontalOptions = LayoutOptions.EndAndExpand;
-			}
-			
-			useKit.Clicked += (sender, e) => {
 
-				Debug.WriteLine("clicked");
-			};
+				useKit.Clicked += async (sender, e) => {
+
+					var answer = await ((ControlKitPage)Parent.Parent.Parent).DisplayAlert ("Attention", "Êtes vous sûr de vouloir sortir ce kit ?", "Oui", "Non");
+
+					if (answer)
+						MessagingCenter.Send<ListView, string> ((ListView)Parent, "useKit", name.Text);
+				};
+			}
 
 			StackLayout layout = new StackLayout {
 
 				Padding = new Thickness(20, 0, 20, 0),
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.StartAndExpand,
-				Children = {name, useKit}
+				Children = {name}
 			};
+
+			if (useKit != null)
+				layout.Children.Add (useKit);
 
 			View = layout;
 
