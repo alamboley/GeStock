@@ -3,12 +3,16 @@
 using Xamarin.Forms;
 using SQLite.Net;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace GeStock
 {
 	public class SearchPage : ContentPage
 	{
 		Label _resultsLabel;
+
+		ObservableCollection<GeStockItem> _myItems;
 
 		public SearchPage ()
 		{
@@ -26,18 +30,38 @@ namespace GeStock
 
 			_resultsLabel = new Label ();
 
+			ListView listView = new ListView {
+				RowHeight = 40,
+				ItemTemplate = new DataTemplate(typeof(GeStockItemCell))
+			};
+
+			_myItems = new ObservableCollection<GeStockItem>();
+			listView.ItemsSource = _myItems;
+
+			Content = new StackLayout { 
+				Children = {
+					new Label { HorizontalOptions = LayoutOptions.Center },
+					listView
+				}
+			};
+
+			listView.ItemSelected += (sender, e) => {
+
+				GeStockItem geStockItem = (GeStockItem)e.SelectedItem;
+
+				Navigation.PushAsync(new ProductXAML (geStockItem));
+			};
+
 			Content = new StackLayout { 
 				Children = {
 					header,
 					searchBar,
-					new ScrollView {
-						Content = _resultsLabel,
-						VerticalOptions = LayoutOptions.FillAndExpand
-					}
+					listView
 				}
 			};
 
-			searchBar.SearchButtonPressed += OnSearchBarButtonPressed;
+			searchBar.TextChanged += OnSearchBarButtonPressed;
+			//searchBar.SearchButtonPressed += OnSearchBarButtonPressed;
 		}
 
 		void OnSearchBarButtonPressed(object sender, EventArgs args) {
@@ -45,7 +69,12 @@ namespace GeStock
 			SearchBar searchBar = (SearchBar)sender;
 			string searchText = searchBar.Text;
 
-			_resultsLabel.Text = App.Database.FindItemNamed (searchText).Name;
+			List<GeStockItem> items = App.Database.FindItemsCloseToName(searchText);
+
+			_myItems.Clear();
+
+			foreach (GeStockItem gestockItem in items)
+				_myItems.Add (gestockItem);
 		}
 	}
 }

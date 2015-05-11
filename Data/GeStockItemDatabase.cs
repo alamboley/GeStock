@@ -75,6 +75,14 @@ namespace GeStock
 			}
 		}
 
+		public List<GeStockItem> FindItemsCloseToName(string name) {
+
+			lock (locker) {
+
+				return database.Query<GeStockItem> ("SELECT * FROM GeStockItem WHERE Name Like ?", '%' + name + '%');
+			}
+		}
+
 		public Category GetCategory(int id) {
 
 			lock (locker) {
