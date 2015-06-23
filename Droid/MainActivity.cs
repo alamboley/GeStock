@@ -8,12 +8,10 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace GeStock.Droid
-{
+namespace GeStock.Droid {
 	[Activity (Label = "GeStock.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
-	{
-		protected override void OnCreate (Bundle bundle)
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity {
+		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
